@@ -11,9 +11,8 @@ body{
     background-color: white;
 }
 
-<!-- DAYS -->
 #timer {
-  color: #FFFFFF; 
+  color: #eeeeee; 
   text-align: center;
   text-transform: uppercase;
   font-family: 'Lato', sans-serif bold;
@@ -29,33 +28,32 @@ body{
 }
 
 .days {
-  background: #FFFFFF;
+  background: #EF2F3C;
 }
 
 .hours {
-  background: #FFFFFF;
-  color: #FFFFFF;
+  background: #eeeeee;
+  color: #183059;
 }
 
 .minutes {
-  background: #FFFFFF;
+  background: #276FBF;
 }
 
 .seconds {
-  background: #FFFFFF;
+  background: #F0A202;
 }
 
-<!-- 디데이숫자 -->
 .numbers {
   font-family: 'Montserrat', sans-serif;
-  color: #000000;
+  color: #183059;
   font-size: 5em;
   text-align: center;
 }
 
 .white {
   position: absolute;
-  background:  #FFFFFF;
+  background:  #eeeeee;
   height: 85px;
   width: 75px;
   left: 30%;
@@ -64,7 +62,7 @@ body{
 
 .red {
   position: absolute;
-  background:  #FFFFFF;
+  background:  #EF2F3C;
   left: 18%;
   top: 9%;
   height: 65px;
@@ -74,7 +72,7 @@ body{
 
 .blue {
   position: absolute;
-  background:  #FFFFFF;
+  background:  #276FBF;
   height: 80px;
   width: 80px;
   left: 60%;
@@ -92,14 +90,20 @@ body{
 
     <div class="days"> 
         <div id="days" class="numbers "> </div>days</div>    
-      </div>
+    <div class="hours"> 
+        <div id="hours" class="numbers "> </div>hours</div>    
+    <div class="minutes"> 
+        <div id="minutes" class="numbers "> </div>minutes</div>    
+    <div class="seconds"> 
+        <div id="seconds" class="numbers "> </div>seconds</div>    
+    </div>
 
 </div>
 
 </body>
 <script>
 const year = new Date().getFullYear();
-const myDate = new Date('Aug 01, 2026 00:00:00');
+const myDate = new Date('Aug 01, 2026 08:40:00');
 console.log(myDate);
 
 // countdown
@@ -119,6 +123,9 @@ let timer = setInterval(function() {
 
   // display
   document.getElementById("days").innerHTML=days
+  document.getElementById("hours").innerHTML=hours
+  document.getElementById("minutes").innerHTML=minutes
+  document.getElementById("seconds").innerHTML=seconds
 
 
     
