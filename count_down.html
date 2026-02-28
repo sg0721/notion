@@ -5,92 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900">
     <title>Count_down</title>
+
     <style>
+        body{
+            background-color: white;
+        }
 
-body{
-    background-color: white;
-}
+    // 글자 스타일 //
+    #timer {
+        color: #eeeeee; // 회색 //
+        text-align: center;
+        text-transform: uppercase; // 대문자 //
+        font-family: 'Lato', sans-serif;
+        font-size: .7em; // em 상대사이즈 //
+        letter-spacing: 5px; // 글자 간격 //
+    }
 
-// 글자 스타일 //
-#timer {
-    color: #183059; // 남색 //
-    text-align: center;
-    text-transform: uppercase; // 대문자 //
-    font-family: 'Lato', sans-serif bold;
-    font-size: 10px;
-    letter-spacing: 3px; // 글자 간격 //
-}
+    // 디데이 스타일 //
+    .days, .hours, .minutes, .seconds {
+        display: inline-block;
+        padding: 20px; // 여백 //
+        width: 100px;
+        border-radius: 5px; // 박스 곡률 //
+    }
 
-// 디데이 스타일 //
-.days, .hours, .minutes, .seconds {
-    display: inline-block;
-    padding: 30px; // 여백 //
-    width: 150px;
-    background: #FFFFFF;   
-}
+    .days {
+        background: #EF2F3C;
+    }
 
-.days {
-    font-size: 15px;
-}
-        
-.numbers {
-    font-family: 'Montserrat', sans-serif;
-    color: #183059;
-    font-size: 100px;
-    text-align: center;
-}
+    .hours {
+        background: #eeeeee;
+        color: #183059;
+    }
 
+    .minutes {
+        background: #276FBF;
+    }
+    
+    .seconds {
+        background: #F0A202;
+    }
+    
+    // 숫자 스타일 //
+    .numbers {
+        font-family: 'Montserrat', sans-serif;
+        color: #183059; // 남색 //
+        font-size: 4em;
+        text-align: center;
+    }
 
-
+    // 박스 스타일 //
+    .white {
+        position: absolute;
+        background:  #eeeeee;
+        height: 85px;
+        width: 75px;
+        left: 30%;
+        top: 2%;
+    }
+    
+    .red {
+        position: absolute;
+        background:  #EF2F3C;
+        left: 18%;
+        top: 9%;
+        height: 65px;
+        width: 70px;
+     
+    }
+    
+    .blue {
+        position: absolute;
+        background:  #276FBF;
+        height: 80px;
+        width: 80px;
+        left: 60%;
+        top: 5%;    
+    }
 
     </style>
-</head>
-<body>
     
-<div id="timer">
+</head>
 
-    <div class="days"> 
-        <div id="days" class="numbers "> </div>days</div>    
-    <div class="hours"> 
-        <div id="hours" class="numbers "> </div>hours</div>    
-    <div class="minutes"> 
-        <div id="minutes" class="numbers "> </div>minutes</div>    
-    <div class="seconds"> 
-        <div id="seconds" class="numbers "> </div>seconds</div>    
+    
+<body>
+
+    // 타이머 묶기 //
+    <div id="timer">
+        
+        <div class="days"> 
+            <div id="days" class="numbers "> </div>days</div>    
+        <div class="hours"> 
+            <div id="hours" class="numbers "> </div>hours</div>    
+        <div class="minutes"> 
+            <div id="minutes" class="numbers "> </div>minutes</div>    
+        <div class="seconds"> 
+            <div id="seconds" class="numbers "> </div>seconds</div>    
     </div>
 
-</div>
-
 </body>
-<script>
-const year = new Date().getFullYear();
-const myDate = new Date('Aug 01, 2026 08:40:00');
-console.log(myDate);
-
-// countdown
-let timer = setInterval(function() {
-
-  // get today's date
-  const today = new Date().getTime();
-
-  // get the difference
-  const diff = myDate - today;
-
-  // math
-  let days = Math.floor(diff / (1000 * 60 * 60 * 24)+1);
-  let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-  // display
-  document.getElementById("days").innerHTML=days
-  document.getElementById("hours").innerHTML=hours
-  document.getElementById("minutes").innerHTML=minutes
-  document.getElementById("seconds").innerHTML=seconds
-
 
     
+<script>
+    const year = new Date().getFullYear();
+    const myDate = new Date('Aug 01, 2026 08:40:00');
+    console.log(myDate);
 
-}, 1);
+    // countdown
+    let timer = setInterval(function() {
+    
+    // get today's date
+    const today = new Date().getTime();
+    
+    // get the difference
+    const diff = myDate - today;
+    
+    // math
+    let days = Math.floor(diff / (1000 * 60 * 60 * 24)+1);
+    let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    // display
+    document.getElementById("days").innerHTML=days
+    document.getElementById("hours").innerHTML=hours
+    document.getElementById("minutes").innerHTML=minutes
+    document.getElementById("seconds").innerHTML=seconds
+    
+    }, 1);
+    
 </script>
+
+    
 </html>
